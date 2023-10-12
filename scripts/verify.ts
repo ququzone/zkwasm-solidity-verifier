@@ -20,16 +20,12 @@ function readBnLe(file: string) {
 }
 
 async function main() {
-  const [owner] = await ethers.getSigners();
   const verifierFactory = await ethers.getContractFactory("AggregatorVerifier");
 
-  const verifier = verifierFactory.attach("0x4C2F7092C2aE51D986bEFEe378e50BD4dB99C901") as AggregatorVerifier;
+  const verifier = verifierFactory.attach(process.env.VERIFIER!) as AggregatorVerifier;
 
   const target_instance0 = readBnLe(
     __dirname + "/../proof/zkwasm.0.instance.data"
-  );
-  const target_instance1 = readBnLe(
-    __dirname + "/../proof/simple-circuit.0.instance.data"
   );
   const verify_instance = readBnLe(
     __dirname + "/../proof/aggregate-circuit.0.instance.data"

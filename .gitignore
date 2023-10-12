@@ -11,6 +11,7 @@ artifacts
 types
 
 proof
+wasm
 
 contracts/AggregatorConfig.sol
 contracts/AggregatorVerifierStep*.sol
