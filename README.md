@@ -55,10 +55,13 @@ yarn hardhat run scripts/verify.ts --network dev
 ### 7. Repeat prove and verify
 
 ```
+rm -f ./output/zkwasm.0.*
+rm -f ./output/aggregate-circuit.0.*
 ./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm \
   aggregate-prove --public 6:i64
-./bin/delphinus-cli -o ./output --function zkmain --wasm ./fibonacci.wasm \
+./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm \
   solidity-aggregate-verifier --auxonly \
   --instances ./output/aggregate-circuit.0.instance.data \
-  --proof ./output/aggregate-circuit.0.transcript.data 
+  --proof ./output/aggregate-circuit.0.transcript.data
+yarn hardhat run scripts/verify.ts --network dev
 ```
