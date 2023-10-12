@@ -10,8 +10,7 @@ const config: HardhatUserConfig = {
       allowUnlimitedContractSize: true,
     },
     dev: {
-      url: "http://127.0.0.1:8545",
-      accounts: accounts,
+      url: "http://127.0.0.1:8545"
     },
     iotex_testnet: {
       url: "https://babel-api.testnet.iotex.io",
@@ -19,9 +18,8 @@ const config: HardhatUserConfig = {
     }
   },
   solidity: {
-    version: "0.8.19",
+    version: "0.8.13",
     settings: {
-      viaIR: true,
       optimizer: {
         enabled: true,
         runs: 10000,
