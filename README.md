@@ -51,3 +51,14 @@ export VERIFIER=<deployed contract address>
 ```
 yarn hardhat run scripts/verify.ts --network dev
 ```
+
+### 7. Repeat prove and verify
+
+```
+./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm \
+  aggregate-prove --public 6:i64
+./bin/delphinus-cli -o ./output --function zkmain --wasm ./fibonacci.wasm \
+  solidity-aggregate-verifier --auxonly \
+  --instances ./A7A440B07EB714094B2F91BD7DA82949/aggregate-circuit.0.instance.data \
+  --proof ./A7A440B07EB714094B2F91BD7DA82949/aggregate-circuit.0.transcript.data 
+```
