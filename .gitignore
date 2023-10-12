@@ -10,8 +10,10 @@ cache
 artifacts
 types
 
+# wasm
 proof
 wasm
+output
 
 contracts/AggregatorConfig.sol
 contracts/AggregatorVerifierStep*.sol

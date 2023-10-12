@@ -1,8 +1,53 @@
 zkwasm solidity verifier
 ========================
 
-## Deployments
+## Workflow
+
+### 1. Compile or copy wasm image into wasm directory
 
 ```
-fib: 0x511C15d230E6bB985bD04E62C7fdBB364821ff3F
+brew install llvm
+brew link --force llvm
+clang -O3 --target=wasm32 -nostdlib \
+  -fno-builtin -Wl,--export-all -Wl,--no-entry \
+  -Wl,--allow-undefined -Wl,--export-dynamic \
+  -owasm/fibonacci.wasm c/fibonacci.c
+```
+
+### 2. Trusted setup
+
+```
+./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm setup
+```
+
+### 3. Batch proof
+
+```
+./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm \
+  aggregate-prove --public 5:i64
+```
+
+### 4. Generate solidity verifier
+
+```
+./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm \
+  solidity-aggregate-verifier \
+  --instances ./output/aggregate-circuit.0.instance.data \
+  --proof ./output/aggregate-circuit.0.transcript.data \
+  --sol_dir ./
+```
+
+### 5. Deploy contracts
+
+```
+# dev network
+anvil
+yarn hardhat run scripts/deploy.ts --network dev
+export VERIFIER=<deployed contract address>
+```
+
+### 6. Verify proof
+
+```
+yarn hardhat run scripts/verify.ts --network dev
 ```

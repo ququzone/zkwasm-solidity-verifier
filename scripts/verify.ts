@@ -25,16 +25,16 @@ async function main() {
   const verifier = verifierFactory.attach(process.env.VERIFIER!) as AggregatorVerifier;
 
   const target_instance0 = readBnLe(
-    __dirname + "/../proof/zkwasm.0.instance.data"
+    __dirname + "/../output/zkwasm.0.instance.data"
   );
   const verify_instance = readBnLe(
-    __dirname + "/../proof/aggregate-circuit.0.instance.data"
+    __dirname + "/../output/aggregate-circuit.0.instance.data"
   );
   const proof = readBnLe(
-    __dirname + "/../proof/aggregate-circuit.0.transcript.data"
+    __dirname + "/../output/aggregate-circuit.0.transcript.data"
   );
   const aux = readBnLe(
-    __dirname + "/../proof/aggregate-circuit.0.aux.data"
+    __dirname + "/../output/aggregate-circuit.0.aux.data"
   );
 
   const gas = await verifier.verify.estimateGas(
