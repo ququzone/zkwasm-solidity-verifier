@@ -1,6 +1,13 @@
 zkwasm solidity verifier
 ========================
 
+## Basic
+
+zkWasm is a virtual machine that:
+
+1. Run the wasm bytecode
+2. Prove the runing result of the bytecode using zero knowledge proofs
+
 ## Workflow
 
 ### 1. Compile or copy wasm image into wasm directory

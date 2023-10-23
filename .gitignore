@@ -12,7 +12,7 @@ types
 
 # wasm
 proof
-wasm
+wasm/*.wasm
 output
 
 contracts/AggregatorConfig.sol

@@ -28,6 +28,6 @@
     "bn.js": "^5.2.1"
   },
   "scripts": {
-    "clean": "rimraf ./contracts/AggregatorConfig.sol ./contracts/AggregatorVerifierStep*.sol ./proof"
+    "clean": "rimraf ./contracts/AggregatorConfig.sol ./contracts/AggregatorVerifierStep*.sol ./proof ./output ./types ./wasm/*.wasm ./cache ./artifacts"
   }
 }
