@@ -8,7 +8,7 @@ zkWasm is a virtual machine that:
 1. Run the wasm bytecode
 2. Prove the runing result of the bytecode using zero knowledge proofs
 
-## zkWasm Explorer
+## zkWasm cloud
 
 https://zkwasm-explorer.delphinuslab.com/
 
@@ -17,6 +17,13 @@ https://zkwasm-explorer.delphinuslab.com/
 1. Create application
 2. Create prove task
 3. Deploy verifier contract
+4. Verify proof
+
+### SDK
+
+https://github.com/DelphinusLab/zkWasm-service-helper
+
+https://github.com/DelphinusLab/zkWasm-service-cli
 
 ## Workflow
 
@@ -31,7 +38,7 @@ clang -O3 --target=wasm32 -nostdlib \
   -owasm/fibonacci.wasm c/fibonacci.c
 ```
 
-### 2. Trusted setup
+### 2. Setup
 
 ```
 ./bin/delphinus-cli -o ./output --function zkmain --wasm ./wasm/fibonacci.wasm setup
