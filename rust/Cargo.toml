@@ -1,5 +1,6 @@
 [package]
-name = "zkwasm-rust-hello"
+name = "zkwasm-rust-fibonacci"
+description = "zkwasm rust fibonacci"
 version = "0.1.0"
 edition = "2021"
 
