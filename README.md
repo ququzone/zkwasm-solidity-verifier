@@ -8,6 +8,16 @@ zkWasm is a virtual machine that:
 1. Run the wasm bytecode
 2. Prove the runing result of the bytecode using zero knowledge proofs
 
+## zkWasm Explorer
+
+https://zkwasm-explorer.delphinuslab.com/
+
+### Steps
+
+1. Create application
+2. Create prove task
+3. Deploy verifier contract
+
 ## Workflow
 
 ### 1. Compile or copy wasm image into wasm directory
